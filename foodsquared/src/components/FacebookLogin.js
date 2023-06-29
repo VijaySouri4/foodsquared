@@ -1,0 +1,50 @@
+import React from 'react'
+import { StyleSheet, View, Text } from 'react-native'
+import { Svg, Path } from 'react-native-svg'
+
+const FacebookLogin = () => {
+  return (
+    <View style={styles.root}>
+      <View style={styles.facebookLogo}>
+        <Svg width="23" height="22.86029624938965">
+          <Path
+            d="M 23 11.360295481787672 C 23 17.711575092925294 17.851279187202454 22.86029624938965 11.5 22.86029624938965 C 5.148720812797547 22.86029624938965 0 17.711575092925294 0 11.360295481787672 C 0 5.620312589042293 4.205383920669556 0.8627287248446276 9.703125 0 L 9.703125 8.036076509902726 L 6.783203124999999 8.036076509902726 L 6.783203124999999 11.360295481787672 L 9.703125 11.360295481787672 L 9.703125 13.893889400899981 C 9.703125 16.776076983607673 11.419993877410889 18.368108449545126 14.046845483779906 18.368108449545126 C 15.305039781332015 18.368108449545126 16.62109375 18.143499059552898 16.62109375 18.143499059552898 L 16.62109375 15.31342074565085 L 15.170970439910887 15.31342074565085 C 13.74238736629486 15.31342074565085 13.296874999999998 14.426955247280658 13.296874999999998 13.517511840911203 L 13.296874999999998 11.360295481787672 L 16.486328125 11.360295481787672 L 15.97646484375 8.036076509902726 L 13.296874999999998 8.036076509902726 L 13.296874999999998 0 C 18.794616079330442 0.8627287248446276 23 5.620312589042293 23 11.360295481787672 Z"
+            fill="#ffffff"
+          />
+        </Svg>
+      </View>
+      <Text style={styles.continueWithFacebook}>
+        {`Continue with Facebook`}
+      </Text>
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  root: {
+    display: 'flex',
+    flexDirection: 'row',
+    gap: 15,
+    width: 345,
+    padding: 15,
+    backgroundColor: '#1877f2',
+    borderRadius: 10
+  },
+  facebookLogo: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: 24,
+    height: 24,
+    backgroundColor: '#1877f2'
+  },
+  continueWithFacebook: {
+    height: 23,
+    fontSize: 20,
+    fontWeight: '700',
+    textAlign: 'left',
+    textAlignVertical: 'top',
+    color: '#ffffff'
+  }
+})
+
+export default FacebookLogin
