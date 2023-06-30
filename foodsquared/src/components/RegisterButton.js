@@ -1,11 +1,12 @@
 import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 
-const RegisterButton = () => {
+const RegisterButton = (props) => {
+  const { title = 'None' } = props
   return (
     <View style={styles.root}>
       <View style={styles.rectangle$55}>
-        <Text style={styles.signUp}>{`Register`}</Text>
+        <Text style={styles.signUp}>{title}</Text>
       </View>
     </View>
   )

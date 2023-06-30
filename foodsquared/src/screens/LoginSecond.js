@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect, createRef } from 'react'
 import { View, Text, SafeAreaView, StyleSheet, Image } from 'react-native'
-import TextInput from '../components/TextInput'
 import TextBox from '../components/TextInput'
 import AppleLogin from '../components/AppleLoginButton'
 import RegisterButton from '../components/RegisterButton'
@@ -8,24 +7,23 @@ import OrLine from '../components/OrLine'
 import FacebookLogin from '../components/FacebookLogin'
 import GoogleLogin from '../components/GoogleLogin'
 
-const RegisterOne = () => {
+const LoginSecond = () => {
   return (
     <SafeAreaView style={Styles.wrapper}>
       <View style={{ justifyContent: 'center' }}>
-        <Text style={Styles.title}>Sign Up</Text>
+        <Text style={Styles.title}>Login</Text>
       </View>
       <View style={[Styles.container, Styles.shadowProp]}>
-        <TextBox placeholdertext={'First Name'}></TextBox>
-        <TextBox placeholdertext={'Last Name'}></TextBox>
         <TextBox placeholdertext={'Email'}></TextBox>
-        <TextBox placeholdertext={'Phone Number'}></TextBox>
-        <TextBox
-          placeholdertext={'Password'}
-          secureTextEntry={[true]}
-        ></TextBox>
+        <TextBox placeholdertext={'Password'} secureTextEntry={true}></TextBox>
+      </View>
+      <View style={{ marginLeft: 30, marginTop: 10 }}>
+        <Text style={{ fontSize: 12, color: 'darkorange' }}>
+          Forgot Password?
+        </Text>
       </View>
       <View style={Styles.registration}>
-        <RegisterButton title={'Register'}></RegisterButton>
+        <RegisterButton title={'Login'}></RegisterButton>
       </View>
       <View style={{ alignItems: 'center' }}>
         <OrLine></OrLine>
@@ -51,9 +49,8 @@ const Styles = StyleSheet.create({
   title: {
     fontStyle: 'italic',
     fontSize: 27,
+    justifyContent: 'center',
     marginLeft: 30
-    //alignItems: 'center'
-    //justifyContent: 'center'
   },
   registration: {
     alignItems: 'center',
@@ -81,4 +78,4 @@ const Styles = StyleSheet.create({
   }
 })
 
-export default RegisterOne
+export default LoginSecond

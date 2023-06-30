@@ -2,12 +2,10 @@ import React from 'react'
 import { Text, View, StyleSheet, Pressable } from 'react-native'
 
 const PressableSmallButton = (props) => {
-  const { title = 'None', navigation } = props
+  const { title = 'None', navigation, navigatingpage } = props
+  const page = navigatingpage[0]
   return (
-    <Pressable
-      style={styles.button}
-      onPress={() => navigation.navigate('RegisterOne')}
-    >
+    <Pressable style={styles.button} onPress={() => navigation.navigate(page)}>
       <Text style={styles.text}>{title}</Text>
     </Pressable>
   )

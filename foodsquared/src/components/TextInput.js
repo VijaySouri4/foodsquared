@@ -2,13 +2,15 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput } from 'react-native'
 
 const TextBox = (props) => {
-  const { placeholdertext, secureTextEntryFlag } = props
+  const { placeholdertext, secureTextEntry = [false] } = props
+  const flag = secureTextEntry[0]
+  // console.log(flag)
   return (
     <View style={styles.root}>
       <View style={styles.rectangle$79}>
         <TextInput
           style={styles.firstName}
-          secureTextEntry={secureTextEntryFlag}
+          secureTextEntry={flag}
           placeholder={placeholdertext}
         />
       </View>

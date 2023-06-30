@@ -14,10 +14,15 @@ const LoginFirst = ({ navigation }) => {
       />
       <View style={Styles.container}>
         <PressableSmallButton
-          title={'Login'}
+          title={'Sign Up'}
           navigation={navigation}
+          navigatingpage={['RegisterOne']}
         ></PressableSmallButton>
-        <SmallSignup></SmallSignup>
+        <PressableSmallButton
+          title={'Log In'}
+          navigation={navigation}
+          navigatingpage={['LoginSecond']}
+        ></PressableSmallButton>
       </View>
       <View style={{ alignItems: 'center' }}>
         <OrLine></OrLine>
