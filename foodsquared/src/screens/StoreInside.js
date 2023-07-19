@@ -18,7 +18,7 @@ const StoreInside = (props) => {
   }, [])
 
   const fetchData = () => {
-    fetch('http://172.31.130.16:3000/api/viewProduct')
+    fetch('http://192.168.1.21:3000/api/viewProduct')
       .then((response) => response.json())
       .then((jsonResponse) => setUsers(jsonResponse))
       .catch((error) => console.log(error))
@@ -36,7 +36,12 @@ const StoreInside = (props) => {
     )
   }
   return (
-    <View style={{ flex: 1, backgroundColor: 'white' }}>
+    <View style={{ flex: 1, backgroundColor: '#EBFFED' }}>
+      <View style={styles.topbar}>
+        <View style={styles.imageContainer}>
+          <Image source={require('../../assets/storelogo.png')}></Image>
+        </View>
+      </View>
       <FlatList
         data={users}
         renderItem={renderUser}

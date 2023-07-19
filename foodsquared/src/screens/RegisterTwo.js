@@ -16,33 +16,20 @@ const RegisterOne = () => {
     console.log(`users are : ${newusers}`)
   }, [])
 
-  const fetchData = () => {
-    fetch('http://172.31.130.16:3000/api/register', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: 'yoyo@yomail.com',
-        password: 'hehehe'
-      })
-    })
-  }
+  const fetchData = () => {}
 
   return (
     <SafeAreaView style={Styles.wrapper}>
       <View style={{ justifyContent: 'center' }}>
-        <Text style={Styles.title}>Sign Up</Text>
+        <Text style={Styles.title}>Create Account</Text>
       </View>
       <View style={[Styles.container, Styles.shadowProp]}>
+        <TextBox placeholdertext={'Name'}></TextBox>
+        <TextBox placeholdertext={'Address'}></TextBox>
+        <TextBox placeholdertext={'Phone Number'}></TextBox>
         <TextBox placeholdertext={'Email'}></TextBox>
         <TextBox
           placeholdertext={'Password'}
-          secureTextEntry={[true]}
-        ></TextBox>
-        <TextBox
-          placeholdertext={'Confirm Password'}
           secureTextEntry={[true]}
         ></TextBox>
       </View>
