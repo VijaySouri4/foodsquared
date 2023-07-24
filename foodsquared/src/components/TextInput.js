@@ -12,6 +12,8 @@ const TextBox = (props) => {
           style={styles.firstName}
           secureTextEntry={flag}
           placeholder={placeholdertext}
+          value={value}
+          onChangeText={(text) => props.onChangeText(text)}
         />
       </View>
     </View>

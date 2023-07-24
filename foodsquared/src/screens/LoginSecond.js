@@ -17,25 +17,75 @@ import FacebookLogin from '../components/FacebookLogin'
 import GoogleLogin from '../components/GoogleLogin'
 import { AUTH } from '../../firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth'
 
-const LoginSecond = () => {
+const LoginSecond = ({ navigation }) => {
+  const [isSignedIn, setIsSignedIn] = useState(false)
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [user, setUser] = useState(false)
   const auth = AUTH
 
   const handleSignIn = async () => {
     setLoading(true)
     try {
-      const response = await signInWithEmailAndPassword(auth, email, password)
-      console.log(response)
+      console.log('hello')
+      const response = await fetch(
+        'http://192.168.137.252:3000/UserAuthentication/login',
+        {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            username: 'kparth10',
+            password: '100'
+          })
+        }
+      )
+      const json = await response.json()
+      console.log(json)
+      json != ' ' ? setIsSignedIn(true) : setIsSignedIn(false)
+      // const response = fetch('http://192.168.1.13:3000/api')
+      // const json = await response.json()
+      // console.log(json)
+      setUser(json)
+
+      // isSignedIn ? alert(`User ${user} Signed in`) : alert('User not found')
     } catch (err) {
       console.log(err)
+      setIsSignedIn(false)
+      console.log(`SignedIN status is: ${isSignedIn}`)
     } finally {
       setLoading(false)
     }
   }
+  //https://jsonplaceholder.typicode.com/users
+  // const test = async () => {
+  //   try {
+  //     const response = await fetch('http://192.168.1.13:3000/api')
+  //     const json = await response.json()
+  //     console.log(json)
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+
+  if (isSignedIn) {
+    console.log(` TWO SignedIN status is: ${isSignedIn}`)
+    navigation.navigate('Product Page')
+  }
+
+  // onAuthStateChanged(auth, (user) => {
+  //   if (user) {
+  //     console.log(`The user Id is : ${user.uid}`)
+  //     setIsSignedIn(true)
+  //   } else {
+  //     console.log(user)
+  //   }
+  // })
 
   return (
     <SafeAreaView style={Styles.wrapper}>

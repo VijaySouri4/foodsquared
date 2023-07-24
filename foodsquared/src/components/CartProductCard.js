@@ -2,18 +2,20 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-const ProductCard = (props) => {
+const CartProductCard = (props) => {
   const [count, setcount] = useState(0)
-  const { name, sellbyDate, price, image } = props
+  const { name, price, image, quantity } = props
   return (
     <View>
-      <View style={[styles.container, styles.shadowProp]}>
-        <Image source={{ uri: image }} style={styles.productimage} />
-      </View>
-      <View style={styles.info}>
-        <Text style={styles.price}>{`$${price}`}</Text>
-        <Text style={styles.Text}>{name}</Text>
-        <Text style={styles.Text}>{`Best By: ${sellbyDate}`}</Text>
+      <View style={styles.container}>
+        <View style={styles.shadowProp}>
+          <Image source={{ uri: image }} style={styles.productimage} />
+        </View>
+        <View style={{ flexDirection: 'column', marginLeft: 40 }}>
+          <Text style={styles.price}>{`$${price}`}</Text>
+          <Text style={styles.Text}>{name}</Text>
+          <Text style={styles.Text}>{quantity}</Text>
+        </View>
       </View>
     </View>
   )
@@ -25,8 +27,10 @@ const styles = StyleSheet.create({
     width: 147,
     height: 115,
     alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10
+    justifyContent: 'space-evenly',
+    borderRadius: 10,
+    flexDirection: 'row',
+    marginLeft: 40
   },
   productimage: {
     height: 100,
@@ -49,4 +53,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ProductCard
+export default CartProductCard

@@ -42,7 +42,7 @@ const LoginFirst = ({ navigation }) => {
         <View style={{ alignItems: 'center' }}>
           <Text
             style={Styles.redirectText}
-            onPress={() => navigation.navigate('Product Page')}
+            onPress={() => navigation.navigate('Product Page')} // CHANGE THIS TO NAVIGATE TO THE STORE PAGE INSTEAD OF MAPS
           >
             Continue as Guest
           </Text>
@@ -56,7 +56,12 @@ const LoginFirst = ({ navigation }) => {
           flex: 0.1
         }}
       >
-        <Text style={Styles.redirectText} onPress={() => {}}>
+        <Text
+          style={Styles.redirectText}
+          onPress={() => {
+            navigation.navigate('Store Login')
+          }}
+        >
           Store Login
         </Text>
       </View>

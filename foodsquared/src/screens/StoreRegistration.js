@@ -5,8 +5,7 @@ import {
   SafeAreaView,
   StyleSheet,
   Image,
-  TextInput,
-  Pressable
+  TextInput
 } from 'react-native'
 import TextBox from '../components/TextInput'
 import AppleLogin from '../components/AppleLoginButton'
@@ -15,68 +14,27 @@ import OrLine from '../components/OrLine'
 import FacebookLogin from '../components/FacebookLogin'
 import GoogleLogin from '../components/GoogleLogin'
 
-const RegisterOne = ({ route, navigation }) => {
+const StoreRegistration = ({ route, navigation }) => {
   const [newusers, setUsers] = useState([])
   const [isSignedIn, setIsSignedIn] = useState(false)
-  const [loading, setLoading] = useState(false)
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [confemail, setConfEmail] = useState('')
   const [confpassword, setConfPassword] = useState('')
 
-  const { user, email, password } = route.params
+  // const { user, email, password } = route.params
 
-  // const user = 'vijay'
-  // const email = 'vijay@gmail'
-  // const password = 'vijay123'
+  const user = 'vijay'
+  const email = 'vijay@gmail'
+  const password = 'vijay123'
 
   useEffect(() => {
+    // fetchData()
     console.log(`users are : ${newusers}`)
   }, [])
 
-  const fetchData = async () => {
-    if (password !== confpassword) {
-      alert('Passwords do not match')
-      return
-    }
-    if (email !== confemail) {
-      alert('Emails do not match')
-      return
-    }
-    setLoading(true)
-    try {
-      // const response = await createUserWithEmailAndPassword(
-      //   auth,
-      //   email,
-      //   password
-      // ).then((userCredential) => {
-      //   let user = userCredential.user
-      //   setUsers(user)
-      //   console.log(`The user is : ${user}`)
-      // })
-      const response = await fetch('http://192.168.137.252:3000/api/user', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name: name,
-          address: address,
-          number: phoneNumber
-        })
-      })
-      const json = await response.json()
-      console.log(json)
-      alert('User account created & signed in!')
-      navigation.navigate('Product Page')
-    } catch (err) {
-      console.log(err)
-    } finally {
-      setLoading(false)
-    }
-  }
+  const fetchData = () => {}
 
   return (
     <SafeAreaView style={Styles.wrapper}>
@@ -173,11 +131,9 @@ const RegisterOne = ({ route, navigation }) => {
             </View>
           </View>
         </View>
-        <Pressable onPress={fetchData}>
-          <View style={Styles.registration}>
-            <RegisterButton title={'Register'}></RegisterButton>
-          </View>
-        </Pressable>
+        <View style={Styles.registration}>
+          <RegisterButton title={'Register'}></RegisterButton>
+        </View>
       </View>
     </SafeAreaView>
   )
@@ -238,4 +194,4 @@ const Styles = StyleSheet.create({
   }
 })
 
-export default RegisterOne
+export default StoreRegistration

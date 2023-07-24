@@ -15,7 +15,11 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.foodsquared.app",
+      "config": {
+        "googleMapsApiKey": "AIzaSyCITMIzfxs7urBBZ9kMlUAXzLw7YCpK-Yk"
+      }
     },
     "android": {
       "adaptiveIcon": {

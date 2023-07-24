@@ -7,6 +7,10 @@ import LoginSecond from '../screens/LoginSecond'
 import RegisterTwo from '../screens/RegisterTwo'
 import StoreInside from '../screens/StoreInside'
 import Tabs from './Tabs'
+import MapView from '../screens/StoresLocationView'
+import StoreLogin from '../screens/StoreLogin'
+import StoreRegistration from '../screens/StoreRegistration'
+import StoreTabs from '../screens/StoreTabs'
 
 const stack = createNativeStackNavigator()
 
@@ -37,6 +41,31 @@ const Stack = () => {
         name="Product Page"
         component={Tabs}
         options={{ title: 'Browse products' }}
+      />
+      <stack.Screen
+        name="MapView"
+        component={MapView}
+        options={{ title: 'Store Locations' }}
+      />
+      <stack.Screen
+        name="RegisterTwo"
+        component={RegisterTwo}
+        options={{ title: 'Complete Registration' }}
+      />
+      <stack.Screen
+        name="Store Login"
+        component={StoreLogin}
+        options={{ title: 'Store Login' }}
+      />
+      <stack.Screen
+        name="Store Registration"
+        component={StoreRegistration}
+        options={{ title: 'Store Registration' }}
+      />
+      <stack.Screen
+        name="Store Tabs"
+        component={StoreTabs}
+        options={{ title: 'Store Tabs' }}
       />
     </stack.Navigator>
   )

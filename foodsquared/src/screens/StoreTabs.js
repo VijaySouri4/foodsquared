@@ -1,22 +1,14 @@
 import React, { useState, useRef, useEffect, createRef } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import StoreInside from '../screens/StoreInside'
 import { Feather } from '@expo/vector-icons'
-import StoresLocationView from '../screens/StoresLocationView'
-import StoreList from '../screens/StoreList'
-import InternalStack from './InternalStack'
-import Cart from '../screens/Cart'
-import CustomerAccount from '../screens/CustomerAccount'
-import OrderHistory from '../screens/OrderHistory'
-import OrderHistoryStack from './OrderHistoryStack'
-import AccountStack from './AccountStack'
-import CartStack from './CartStack'
+import StoreSummary from './StoreSummary'
+import StoreInventory from './StoreInventory'
+import StoreAccount from './StoreAccount'
+import StoreOrderHistory from './StoreOrderHistory'
 
 const tab = createBottomTabNavigator()
 
-const Tabs = () => {
+const StoreTabs = () => {
   return (
     <tab.Navigator
       screenOptions={{
@@ -29,13 +21,13 @@ const Tabs = () => {
       }}
     >
       <tab.Screen
-        name={'Map'}
-        component={StoresLocationView}
+        name={'Store Summary'}
+        component={StoreSummary}
         options={{
-          title: 'Map',
+          title: 'info',
           tabBarIcon: ({ focused }) => (
             <Feather
-              name={'map'}
+              name={'info'}
               size={25}
               color={focused ? '#519671' : 'black'}
             />
@@ -43,13 +35,13 @@ const Tabs = () => {
         }}
       />
       <tab.Screen
-        name={'Storelist'}
-        component={InternalStack}
+        name={'Store inventory'}
+        component={StoreInventory}
         options={{
-          title: 'List',
+          title: 'Inventory',
           tabBarIcon: ({ focused }) => (
             <Feather
-              name={'list'}
+              name={'database'}
               size={25}
               color={focused ? '#519671' : 'black'}
             />
@@ -57,9 +49,8 @@ const Tabs = () => {
         }}
       />
       <tab.Screen
-        name={'CustomerAccount'}
-        component={AccountStack}
-        stack
+        name={'Store Account'}
+        component={StoreAccount}
         options={{
           title: 'Account',
           tabBarIcon: ({ focused }) => (
@@ -72,22 +63,8 @@ const Tabs = () => {
         }}
       />
       <tab.Screen
-        name={'Cart'}
-        component={CartStack}
-        options={{
-          title: 'Cart',
-          tabBarIcon: ({ focused }) => (
-            <Feather
-              name={'shopping-cart'}
-              size={25}
-              color={focused ? '#519671' : 'black'}
-            />
-          )
-        }}
-      />
-      <tab.Screen
-        name={'OrderHistory'}
-        component={OrderHistoryStack}
+        name={'StoreOrderHistory'}
+        component={StoreOrderHistory}
         options={{
           title: 'OrderHistory',
           tabBarIcon: ({ focused }) => (
@@ -103,4 +80,4 @@ const Tabs = () => {
   )
 }
 
-export default Tabs
+export default StoreTabs

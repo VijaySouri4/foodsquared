@@ -2,19 +2,16 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useState, useEffect } from 'react'
 
-const ProductCard = (props) => {
+const CategoryCard = (props) => {
   const [count, setcount] = useState(0)
-  const { name, sellbyDate, price, image } = props
+  const { name, image } = props
   return (
     <View>
       <View style={[styles.container, styles.shadowProp]}>
         <Image source={{ uri: image }} style={styles.productimage} />
-      </View>
-      <View style={styles.info}>
-        <Text style={styles.price}>{`$${price}`}</Text>
         <Text style={styles.Text}>{name}</Text>
-        <Text style={styles.Text}>{`Best By: ${sellbyDate}`}</Text>
       </View>
+      <View style={styles.info}></View>
     </View>
   )
 }
@@ -33,7 +30,7 @@ const styles = StyleSheet.create({
     width: 90
   },
   info: {
-    // backgroundColor: '#FFFFFF'
+    alignItems: 'center'
   },
   shadowProp: {
     shadowColor: '#171717',
@@ -49,4 +46,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ProductCard
+export default CategoryCard
